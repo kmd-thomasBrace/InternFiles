@@ -28,7 +28,6 @@ class ContactPageCest
         $I->see('Contact Us','h1');
     }
       
-    // tests
     public function tryToTestRejectedEmailsOnContactUsForm(AcceptanceTester $I)
     {
         $I->amOnPage('/Contact-Us');

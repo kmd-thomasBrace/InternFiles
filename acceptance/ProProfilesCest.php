@@ -16,6 +16,7 @@ class ProProfilesCest
     {
         $I->see('Professional Profiles','h1');
     }
+    
     private function testEachPathInSpecificLevel(AcceptanceTester $I, $level)
     {
         //each value in the job family array contains the number of sub groups in each job family

@@ -44,7 +44,8 @@ class HomePageCest
     }
 
     public function tryToTestSpecialCharactersInSearch(AcceptanceTester $I)
-    {
+    { 
+        //check that each special character is dealt with correctly when using them in the search
         $specialCharacters = array(
             "'","{",'"',"<","["
             );
