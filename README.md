@@ -76,3 +76,25 @@ sonar.sources=.
 ```
 3. Now whenever a project is built, a link to the sonarQube results will appear in the console log of the build
 
+## Codeception/Jenkins Installation
+### Install php on Jenkins
+Using the same jenkins docker, you can install php on it and run codeception tests in the jenkins build to do this you have to access the jenkins docker shell. This means the jenkins docker must first be running and when it is execute the following command in the terminal:
+
+``` docker exec -u 0 -it sonarondocker_jenkins_1 bash ```
+
+This opens bash in the jenkins docker. Now you can install php using the following commands:
+```
+apt-get update
+apt-get upgrade
+apt-get install -y php
+apt-get install -y php-curl
+```
+Now php tests can be ran using the jenkins built in shell.
+### Run codeception tests
+The only step needed to run codeception tests on a jenkins project is to add one line 'Execute Shell' build step on the project. First codeception files need to be present in the workspace of the build for example in the image below:
+
+![File Structure](file_structure.png?raw=true)
+
+Then you would execute the following build step in the jenkins project to run the command 'run' on codeception:
+
+``` ./vendor/bin/codecept run ```
